@@ -1,0 +1,196 @@
+Screen1 As screen:
+    Fill: =
+
+    "GallerieCSIEs As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(60, 55, 50, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        Items: =If(ToggleToutLesCSIEs, If(ToggleFiltreEtablissement, Filter(CSIE, USER.Department = ChoixEtablissement.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BResult'), CSIE), Filter(CSIE, USER.Department = UserDepartment))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =200
+        Transition: =Transition.Pop
+        Width: =Parent.Width - Self.X
+        WrapCount: =Int(Self.Width / 400)
+        X: =Container2.X + Container2.Width
+        ZIndex: =4
+
+        Button2_1 As button:
+            BorderThickness: =0
+            DisabledBorderColor: =RGBA(128, 128, 128, 1)
+            DisabledFill: =RGBA(60, 55, 50, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Height: =Parent.TemplateHeight - 22
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Text: =""
+            Width: =Parent.TemplateWidth - 22
+            X: =14
+            Y: =14
+            ZIndex: =1
+
+        Container1 As groupContainer.manualLayoutContainer:
+            Height: =Parent.TemplateHeight - 20
+            Width: =Parent.TemplateWidth - 20
+            X: =5
+            Y: =5
+            ZIndex: =7
+
+            Button2 As button:
+                DisplayMode: =DisplayMode.Disabled
+                Height: =Parent.Height - 2
+                OnSelect: =Select(GallerieCSIEs)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Text: =""
+                Width: =Parent.Width - 2
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+            NextArrow1 As icon.ChevronRight:
+                AccessibleLabel: =Self.Tooltip
+                Height: =60
+                Icon: =Icon.ChevronRight
+                OnSelect: =Select(GallerieCSIEs)
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                TabIndex: =0
+                Tooltip: ="Afficher les détails de l'élément"
+                Width: =60
+                X: =Parent.Width - Self.Width - 5
+                Y: =(Parent.Height / 2) - (Self.Height / 2)
+                ZIndex: =2
+
+            Subtitle1 As label:
+                Color: =RGBA(77, 79, 83, 1)
+                Height: =Self.Size * 1.8 * 2
+                OnSelect: =Select(GallerieCSIEs)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =14
+                Text: =Proper(ThisItem.USER.Department)
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Title1.Width
+                X: =Title1.X
+                Y: =Title1.Y + Title1.Height + 4
+                ZIndex: =3
+
+            Title1 As label:
+                AutoHeight: =true
+                Color: =RGBA(77, 79, 83, 1)
+                Height: =Self.Size * 1.8 * 2
+                OnSelect: =Select(GallerieCSIEs)
+                PaddingLeft: =0
+                PaddingRight: =0
+                Size: =15
+                Text: =Replace(ThisItem.USER.DisplayName, Find("(", ThisItem.USER.DisplayName), 1024, "")
+                VerticalAlign: =VerticalAlign.Top
+                Width: =Parent.Width - Image1.Width - 104
+                X: =Image1.X + Image1.Width + 24
+                Y: =40
+                ZIndex: =4
+
+            Image1 As image:
+                Height: =128
+                Image: =ThisItem.USER.Picture
+                ImagePosition: =ImagePosition.Fill
+                OnSelect: =Select(GallerieCSIEs)
+                RadiusBottomLeft: =100
+                RadiusBottomRight: =100
+                RadiusTopLeft: =100
+                RadiusTopRight: =100
+                Width: =128
+                X: =20
+                Y: =(Parent.Height / 2) - (Self.Height / 2)
+                ZIndex: =5
+
+    Container2 As groupContainer.manualLayoutContainer:
+        Height: =768
+        Width: =450
+        X: |-
+            =With({Val: 1 -Timer1.Value / Timer1.Duration, Width: -Self.Width + Icon1.Width}, Width * LeftPanelVisible * (1 - Val) + Width * (!LeftPanelVisible) * Val)
+        ZIndex: =6
+
+        Rectangle1 As rectangle:
+            BorderColor: =RGBA(50, 55, 60, 1)
+            Fill: =RGBA(60, 55, 50, 1)
+            Height: =Parent.Height
+            Width: =2
+            X: =Parent.Width - Self.Width
+            ZIndex: =1
+
+        ToggleToutLesCSIEs As toggleSwitch:
+            Color: =RGBA(60, 55, 50, 1)
+            FalseText: ="Mon CSIE (" & Proper(UserDepartment) & ")"
+            Height: =35
+            TextPosition: =TextPosition.Left
+            TrueFill: =RGBA(0, 136, 206, 1)
+            TrueText: ="Tous les CSIEs"
+            Visible: =LeftPanelVisible
+            Width: =360
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+        ToggleFiltreEtablissement As toggleSwitch:
+            Color: =RGBA(60, 55, 50, 1)
+            FalseText: ="Non filtré par établissement"
+            Height: =35
+            TextPosition: =TextPosition.Left
+            TrueFill: =RGBA(0, 136, 206, 1)
+            TrueText: ="Filtré par établissement"
+            Visible: =ToggleToutLesCSIEs && LeftPanelVisible
+            Width: =360
+            X: =40
+            Y: =90
+            ZIndex: =3
+
+        ChoixEtablissement As dropdown:
+            BorderColor: =RGBA(0, 136, 206, 1)
+            ChevronBackground: =RGBA(0, 136, 206, 1)
+            Color: =RGBA(60, 55, 50, 1)
+            Default: =First(CSIE).USER.Department
+            Items: =Distinct(CSIE, USER.Department)
+            Visible: =ToggleToutLesCSIEs && ToggleFiltreEtablissement && LeftPanelVisible
+            Width: =360
+            X: =40
+            Y: =140
+            ZIndex: =4
+
+        Icon1 As icon.ChevronLeft:
+            BorderColor: =RGBA(60, 55, 50, 1)
+            BorderThickness: =2
+            Color: =RGBA(60, 55, 50, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.ChevronLeft
+            OnSelect: |-
+                =Reset(Timer1); UpdateContext({LeftPanelVisible: !LeftPanelVisible, StartTimer: true})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Rotation: |-
+                =With({Val: 1 - Timer1.Value / Timer1.Duration}, 180 * LeftPanelVisible * (1 - Val) + 180 * (!LeftPanelVisible) * Val)
+            X: =Parent.Width - Self.Width
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =5
+
+    Timer1 As timer:
+        Duration: =500
+        OnTimerEnd: |-
+            =UpdateContext({StartTimer: false})
+        Start: =StartTimer
+        Text: =Self.Value
+        Y: =728
+        ZIndex: =7
+
