@@ -79,4 +79,9 @@ Screen4 As screen:
         X: =308
         Y: =482
         ZIndex: =6
+    
+    Test1 As test_component:
+        X: =500
+        Y: =500
+        ZIndex: =7
 
