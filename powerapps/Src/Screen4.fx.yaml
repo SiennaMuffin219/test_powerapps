@@ -75,3 +75,8 @@ Screen4 As screen:
         Y: =344
         ZIndex: =5
 
+    DatePicker1 As datepicker:
+        X: =308
+        Y: =482
+        ZIndex: =6
+
