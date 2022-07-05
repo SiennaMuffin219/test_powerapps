@@ -4,10 +4,10 @@
   <description><![CDATA[DATEPICKER
       Control description here.]]></description>
   <requires>
-    <require type="css" src="css/datepicker.css" />
+    <require type="css" src="https://authoringcdn-prodweuil101.azureedge.net/v3.22063.13.227580282/studio/ctrllib/datepicker/css/datepicker.css" />
     <require type="css" src="/openSource/modified/pikaday/pikaday.css" />
     <require type="javascript" src="/openSource/modified/pikaday/pikaday.js" />
-    <require type="javascript" src="js/datepicker.js" />
+    <require type="javascript" src="https://authoringcdn-prodweuil101.azureedge.net/v3.22063.13.227580282/studio/ctrllib/datepicker/js/datepicker.js" />
   </requires>
   <appMagic:capabilities contextualViewsEnabled="true" autoPointerViewState="true" autoDisabledViewState="true" autoBorders="true" autoFocusedBorders="true" autoFill="true" isVersionFlexible="true" />
   <appMagic:accessibilityChecks controlIsInteractive="true" />
