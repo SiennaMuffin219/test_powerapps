@@ -1,0 +1,38 @@
+.appmagic-code128-container {
+    width: 100%;
+    height: 100%
+}
+
+.appmagic-code128-container .appmagic-code128 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    line-height: normal
+}
+
+.appmagic-code128-container .appmagic-code128 {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    white-space: normal;
+    word-wrap: break-word
+}
+
+.appmagic-code128-container .appmagic-code128 .appmagic-code128-content {
+    padding: 1px;
+    margin: -1px
+}
+
+.appmagic-code128-container .appmagic-code128-disabled-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
