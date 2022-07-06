@@ -81,8 +81,18 @@ Screen4 As screen:
         ZIndex: =6
 
     Test1 As code128:
-        HtmlText: ="Affichez votre texte <b><font color=blue>HTML</font></b> ici."
-        X: =500
-        Y: =500
+        Height: =231
+        HtmlText: ="Lorem ipsum dolor sit amet"
+        Width: =648
+        X: =557
+        Y: =253
         ZIndex: =7
+
+    Test1_1 As code128:
+        Height: =231
+        HtmlText: ="Lorem ipsum dolor sit amet"
+        Width: =648
+        X: =336
+        Y: =537
+        ZIndex: =8
 
