@@ -47,7 +47,7 @@
                     var i = e.target;
                     i.removeEventListener("load", t._imgLoadHandler, !1), i.removeEventListener("error", t._imgLoadHandler, !1), t.realized && n._updateForAutoHeight(t)
                 }
-            }, this._renderText(t.properties.Code(), t), ko.applyBindings(t, e)
+            }, this._renderText(t.properties.Code128(), t), ko.applyBindings(t, e)
         }, e.prototype.updateAutoHeightOnParentVisible = function (e) {
             this._updateForAutoHeight(e, !0)
         }, e.prototype._onClick = function (e, t) {
