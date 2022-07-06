@@ -132,7 +132,10 @@
                 var r = document.createElement("div"), a = AppMagic.Functions.getSafeHTML(e, !0), u = this._removeTags(a, "iframe");
                 WinJS.Utilities.setInnerHTMLUnsafe(r, u), n.style.margin = "0px", r.style.fontSize = AppMagic.Utility.stripHtml(t.properties.Size() || ""), r.style.fontFamily = AppMagic.Utility.stripHtml(t.properties.Font()) || "", r.style.color = AppMagic.Utility.stripHtml(t.properties.Color() || ""), r.title = AppMagic.Utility.stripHtml(t.properties.Tooltip() || ""), i.style.padding = u ? "" : "0px";
                 try {
-                    WinJS.Utilities.setInnerHTMLUnsafe(i, r.outerHTML), t._autoHeightDiv = n.children[0]
+                    var code = new Code128(e);
+                    code.insert(i);
+                    /*WinJS.Utilities.setInnerHTMLUnsafe(i, r.outerHTML)*/
+                    t._autoHeightDiv = n.children[0]
                 } catch (e) {
                     Core.Log.verbose("Error setting HTML on HTML Viewer:", e)
                 } o = n.querySelectorAll("a"), this._addEventListenerToBody(n, t), this._addEventListenerToLinks(o);
