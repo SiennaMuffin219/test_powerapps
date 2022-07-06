@@ -79,8 +79,9 @@ Screen4 As screen:
         X: =308
         Y: =482
         ZIndex: =6
-    
+
     Test1 As code128:
+        HtmlText: ="Affichez votre texte <b><font color=blue>HTML</font></b> ici."
         X: =500
         Y: =500
         ZIndex: =7
