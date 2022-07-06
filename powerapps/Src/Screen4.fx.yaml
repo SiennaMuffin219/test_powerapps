@@ -96,6 +96,7 @@ Screen4 As screen:
         ZIndex: =8
 
     code1282 As code128:
+        Code128: ="Lorem ipsum dolor sit amet"
         Height: =84
         Width: =282
         X: =852
