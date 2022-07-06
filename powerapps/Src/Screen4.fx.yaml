@@ -80,7 +80,7 @@ Screen4 As screen:
         Y: =482
         ZIndex: =6
     
-    Test1 As test_component:
+    Test1 As code128:
         X: =500
         Y: =500
         ZIndex: =7
