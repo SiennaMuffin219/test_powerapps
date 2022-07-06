@@ -1,17 +1,17 @@
-<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/code128" name="code128" jsClass="AppMagic.Controls.HtmlViewer" version="2.1.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
-  <author name="Microsoft AppMagic" />
+<widget xmlns="http://openajax.org/metadata" spec="1.0" id="http://microsoft.com/appmagic/code128" name="code128" jsClass="AppMagic.Controls.Code128" version="2.1.0" styleable="true" runtimeCost="1" xmlns:appMagic="http://schemas.microsoft.com/appMagic">
+  <author name="9918240W" />
   <license type="text/html"><![CDATA[<p>TODO:  Need license text here.</p>]]></license>
   <description><![CDATA[HtmlViewer
       Control description here.]]></description>
   <requires>
-    <require type="css" src="https://authoringcdn-prodweuil101.azureedge.net/v3.22063.13.227580282/studio/ctrllib/htmlviewer/css/htmlViewer.css" />
-    <require type="javascript" src="https://raw.githack.com/SiennaMuffin219/test_powerapps/main/custom/test_component.js" />
+    <require type="css" src="https://raw.githack.com/SiennaMuffin219/test_powerapps/main/custom/code128.css" />
+    <require type="javascript" src="https://raw.githack.com/SiennaMuffin219/test_powerapps/main/custom/code128.js" />
     <require type="javascript" src="https://rawcdn.githack.com/kwoktung/code128.js/604dd0ff802fac9986aee7373c5d93901f427e69/dist/index.js" />
   </requires>
   <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoPointerViewState="true" autoDisabledViewState="true" screenActiveAware="true" isVersionFlexible="true" />
   <content><![CDATA[
-   <div class="appmagic-htmlviewer-container">
-   <div class="appmagic-htmlviewer"
+   <div class="appmagic-code128-container">
+   <div class="appmagic-code128"
        data-bind="
          disabled: viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled,
          style: {
@@ -22,13 +22,11 @@
            paddingLeft: properties.PaddingLeft,
            webkitOverflowScrolling: controlWidget.isReplicable ? 'auto' : 'touch',
       }">
-    <div class="appmagic-htmlviewer-div" data-bind="style: {
+    <div class="appmagic-code128-content" data-bind="style: {
       overflowY: properties.AutoHeight() ? 'hidden' : 'auto'
     }">
-      <div class="appmagic-htmlviewer-content"></div>
     </div>
-  </div>
-     <div class="appmagic-htmlviewer-disabled-overlay"
+     <div class="appmagic-code128-disabled-overlay"
        data-bind="
          visible: viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled,
          style: { backgroundColor: properties.DisabledFill }">
@@ -36,11 +34,11 @@
   </div>
   ]]></content>
   <properties>
-    <property name="HtmlText" localizedName="##htmlViewer_HtmlText##" datatype="String" defaultValue="##HTMLViewer_DefaultValue_HtmlText##" isPrimaryInputProperty="true">
-      <title>HtmlViewer contents</title>
+    <property name="Code128" localizedName="Code128" datatype="String" defaultValue="0123456789" isPrimaryInputProperty="true">
+      <title></title>
       <appMagic:category>data</appMagic:category>
       <appMagic:displayName>##htmlViewer_HtmlText_DisplayName##</appMagic:displayName>
-      <appMagic:tooltip>##htmlViewer_HtmlText_Tooltip##</appMagic:tooltip>
+      <appMagic:tooltip>Valeur à afficher en Code128</appMagic:tooltip>
     </property>
     <!-- This is not an 'Auto' property. This is for allowing the label to grow vertically to display the content -->
     <property name="AutoHeight" localizedName="##CommonProperties_AutoHeight##" datatype="Boolean" defaultValue="false">
@@ -93,7 +91,7 @@
   <!-- Display metadata providing property visibility, order, sections, and grouping in UI (e.g. properties panel) -->
   <appMagic:displayMetadata>
     <appMagic:section>
-      <appMagic:property name="HtmlText" />
+      <appMagic:property name="Code128" />
       <appMagic:property name="Font" displayType="FontEnum" showInFloatie="true" />
       <appMagic:property name="Size" labelOverride="##FontSize_Property##" showInFloatie="true" />
       <appMagic:property name="AutoHeight" />
