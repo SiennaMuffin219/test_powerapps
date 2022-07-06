@@ -111,7 +111,7 @@
         }, e.prototype.onChangePaddingRight = function (e, t) {
             t.realized && this._updateForAutoHeight(t)
         }, e.prototype._renderOnPropertyUpdate = function (e, t) {
-            t.realized && e.newValue !== e.oldValue && this._renderText(t.properties.Code(), t)
+            t.realized && e.newValue !== e.oldValue && this._renderText(t.properties.Code128(), t)
         }, e.prototype._renderText = function (e, t) {
             if (t.realized) {
                 null === e && (e = "");
