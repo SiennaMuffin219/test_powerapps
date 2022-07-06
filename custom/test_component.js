@@ -128,7 +128,7 @@
             if (t.realized) {
                 null === e && (e = "");
                 var i = t.contentElement;
-                i.querySelectorAll("canvas").foreach((el) => el.remove());
+                i.querySelectorAll("canvas").forEach(el => el.remove());
                 var code = new Code128(e);
                 code.insert(i);
             }
