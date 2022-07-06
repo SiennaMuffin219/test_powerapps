@@ -81,8 +81,8 @@ Screen4 As screen:
         ZIndex: =6
 
     Test1 As code128:
+        Code128: ="azerty"
         Height: =231
-        HtmlText: ="Lorem ipsum dolor sit amet"
         Width: =648
         X: =557
         Y: =253
@@ -90,9 +90,15 @@ Screen4 As screen:
 
     Test1_1 As code128:
         Height: =231
-        HtmlText: ="Lorem ipsum dolor sit amet"
         Width: =648
         X: =336
         Y: =537
         ZIndex: =8
+
+    code1282 As code128:
+        Height: =84
+        Width: =282
+        X: =852
+        Y: =496
+        ZIndex: =9
 
