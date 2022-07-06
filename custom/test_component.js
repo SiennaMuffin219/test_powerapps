@@ -1,5 +1,4 @@
-/*! For license information please see HtmlViewer.js.LICENSE.txt */
-(function () { return this ? this : window }())["@pa-client/htmlviewer"] = (function (e) {
+(function () { return this ? this : window }())["@pa-client/code128"] = (function (e) {
     var t = {
     };
     function n(i) {
@@ -30,19 +29,17 @@
     }, n.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t) }, n.p = "", n(n.s = 1)
 })([(function (e, t, n) {
     "use strict";
-    n.r(t), n.d(t, "HtmlViewer", (function () { return i }));
+    n.r(t), n.d(t, "Code128", (function () { return i }));
     var i = (function () {
         function e() {
         } return e.prototype.initControlContext = function (e) {
-            e._autoHeightDiv = null, e.divElement = null, e.contentElement = null, e._parentScreenSubscription = null, e._autoHeightOuterContainer = null, e._mutationObserver = null, e._minHeight = AppMagic.Constants.Controls.MinHTMLLabelAutoHeight, e._maxHeight = null, e._autoHeightScheduled = !1, e._autoHeightTimeoutId = null
+            e._autoHeightDiv = null, e.contentElement = null, e._parentScreenSubscription = null, e._autoHeightOuterContainer = null, e._mutationObserver = null, e._minHeight = AppMagic.Constants.Controls.MinHTMLLabelAutoHeight, e._maxHeight = null, e._autoHeightScheduled = !1, e._autoHeightTimeoutId = null
         }, e.prototype.initView = function (e, t) {
             var n = this;
             t._autoHeightOuterContainer = e;
             var i = e.children[0];
-            t.htmlViewerElement = i;
-            var o = i.getElementsByClassName("appmagic-htmlviewer-div")[0];
-            t.divElement = o;
-            var r = i.getElementsByClassName("appmagic-htmlviewer-content")[0];
+            t.code128Element = i;
+            var r = i.getElementsByClassName("appmagic-code128-content")[0];
             t.contentElement = r, t._maxHeight = t.modelProperties.maximumHeight.getValue(), t.clickOnBodyHandler = null, t.fill = ko.computed((function () { return this.viewState.displayMode() === AppMagic.Constants.DisplayMode.Disabled ? this.properties.DisabledFill() : this.properties.Fill() }), t), t._parentScreenSubscription = t.isParentScreenActive.subscribe(function (e, t) {
                 t && this._updateForAutoHeight(e)
             }.bind(this, t)), t.modelProperties.AutoHeight.getValue() && (this._setupMutationObserver(t), this._updateForAutoHeight(t, !0)), t._imgLoadHandler = function (e) {
@@ -50,19 +47,19 @@
                     var i = e.target;
                     i.removeEventListener("load", t._imgLoadHandler, !1), i.removeEventListener("error", t._imgLoadHandler, !1), t.realized && n._updateForAutoHeight(t)
                 }
-            }, this._renderText(t.properties.HtmlText(), t), ko.applyBindings(t, e)
+            }, this._renderText(t.properties.Code(), t), ko.applyBindings(t, e)
         }, e.prototype.updateAutoHeightOnParentVisible = function (e) {
             this._updateForAutoHeight(e, !0)
         }, e.prototype._onClick = function (e, t) {
             if (e.viewState.displayMode() === AppMagic.Constants.DisplayMode.Edit) {
                 e.behaviors.OnSelect();
                 var n = document.createEvent("MouseEvents");
-                n.initEvent("click", !0, !0), e.htmlViewerElement.dispatchEvent(n)
+                n.initEvent("click", !0, !0), e.code128Element.dispatchEvent(n)
             }
         }, e.prototype._onMouseDown = function (e, t) {
             if (e.viewState.displayMode() === AppMagic.Constants.DisplayMode.Edit) {
                 var n = document.createEvent("MouseEvents");
-                n.initEvent("mousedown", !0, !0), e.htmlViewerElement.dispatchEvent(n)
+                n.initEvent("mousedown", !0, !0), e.code128Element.dispatchEvent(n)
             }
         }, e.prototype._onMouseUp = function (e, t) {
             if (e.viewState.displayMode() === AppMagic.Constants.DisplayMode.Edit) {
@@ -72,7 +69,7 @@
         }, e.prototype._onKeyDown = function (e, t) {
             if (e.viewState.displayMode() === AppMagic.Constants.DisplayMode.Edit) {
                 var n = document.createEvent("KeyboardEvent");
-                n.initEvent("keydown", !0, !0), e.htmlViewerElement.dispatchEvent(n)
+                n.initEvent("keydown", !0, !0), e.code128Element.dispatchEvent(n)
             }
         }, e.prototype._shouldUpdateForAutoHeight = function (e) { return !!(e.initialized && e.realized && e.modelProperties.AutoHeight.getValue() && e.isParentScreenActive.peek()) && (e.modelProperties.Visible.getValue() && !e.controlWidget.isAncestorHidden(e)) }, e.prototype._updateForAutoHeight = function (e, t) {
             var n = this;
@@ -90,11 +87,8 @@
         }, e.prototype._disposeMutationObserver = function (e) {
             e._mutationObserver && (e._mutationObserver.disconnect(), e._mutationObserver = null)
         }, e.prototype.disposeView = function (e, t) {
-            if (this._disposeMutationObserver(t), t._autoHeightTimeoutId && (window.clearTimeout(t._autoHeightTimeoutId), t._autoHeightTimeoutId = null), t.divElement) {
-                var n = t.divElement.querySelectorAll("a");
-                this._removeEventListenersFromLinks(n), this._removeEventListenersFromBody(t.divElement, t)
-            } t.fill.dispose(), t.fill = null, t.htmlViewerElement = null, t.divElement = null, t.contentElement = null, t._autoHeightDiv = null, t._autoHeightOuterContainer = null, t._parentScreenSubscription && (t._parentScreenSubscription.dispose(), t._parentScreenSubscription = null), t._parentVisibilityListener && (t._parentVisibilityListener.dispose(), t._parentVisibilityListener = null)
-        }, e.prototype.onChangeHtmlText = function (e, t) {
+            t.fill.dispose(), t.fill = null, t.code128Element = null, t.contentElement = null, t._autoHeightDiv = null, t._autoHeightOuterContainer = null, t._parentScreenSubscription && (t._parentScreenSubscription.dispose(), t._parentScreenSubscription = null), t._parentVisibilityListener && (t._parentVisibilityListener.dispose(), t._parentVisibilityListener = null)
+        }, e.prototype.onChangeCode = function (e, t) {
             t.realized && (e.newValue !== e.oldValue && this._renderText(e.newValue, t), this._updateForAutoHeight(t))
         }, e.prototype.onChangeAutoHeight = function (e, t) {
             t.realized && (t.modelProperties.AutoHeight.getValue() ? (this._setupMutationObserver(t), this._updateForAutoHeight(t)) : (this._disposeMutationObserver(t), t._autoHeightTimeoutId && (window.clearTimeout(t._autoHeightTimeoutId), t._autoHeightTimeoutId = null)))
@@ -106,11 +100,7 @@
             e.realized && this._updateForAutoHeight(e)
         }, e.prototype.onChangeVisible = function (e, t) {
             t.realized && this._updateForAutoHeight(t, !0)
-        }, e.prototype.onChangeColor = function (e, t) {
-            this._renderOnPropertyUpdate(e, t)
         }, e.prototype.onChangeSize = function (e, t) {
-            t.realized && (this._renderOnPropertyUpdate(e, t), this._updateForAutoHeight(t))
-        }, e.prototype.onChangeFont = function (e, t) {
             t.realized && (this._renderOnPropertyUpdate(e, t), this._updateForAutoHeight(t))
         }, e.prototype.onChangePaddingTop = function (e, t) {
             t.realized && this._updateForAutoHeight(t)
@@ -120,10 +110,8 @@
             t.realized && this._updateForAutoHeight(t)
         }, e.prototype.onChangePaddingRight = function (e, t) {
             t.realized && this._updateForAutoHeight(t)
-        }, e.prototype.onChangeTooltip = function (e, t) {
-            this._renderOnPropertyUpdate(e, t)
         }, e.prototype._renderOnPropertyUpdate = function (e, t) {
-            t.realized && e.newValue !== e.oldValue && this._renderText(t.properties.HtmlText(), t)
+            t.realized && e.newValue !== e.oldValue && this._renderText(t.properties.Code(), t)
         }, e.prototype._renderText = function (e, t) {
             if (t.realized) {
                 null === e && (e = "");
@@ -131,48 +119,6 @@
                 i.querySelectorAll("canvas").forEach(el => el.remove());
                 var code = new Code128(e);
                 code.insert(i);
-            }
-        }, e.prototype._removeTags = function (e, t) {
-            var n = document.createElement("div");
-            WinJS.Utilities.setInnerHTMLUnsafe(n, e);
-            for (var i = n.querySelectorAll(t), o = 0;
-                o < i.length;
-                o++)i[o].parentNode.removeChild(i[o]); return n.innerHTML
-        }, e.prototype._addEventListenerToBody = function (e, t) {
-            t.clickOnBodyHandler = this._onClick.bind(this, t), t.mouseDownBodyHandler = this._onMouseDown.bind(this, t), t.mouseUpBodyHandler = this._onMouseUp.bind(this, t), t.keydownOnBodyHandler = this._onKeyDown.bind(this, t), e && (e.addEventListener("click", t.clickOnBodyHandler), e.addEventListener("mousedown", t.mouseDownBodyHandler), e.addEventListener("mouseup", t.mouseUpBodyHandler), e.addEventListener("keydown", t.keydownOnBodyHandler))
-        }, e.prototype._removeEventListenersFromBody = function (e, t) {
-            e && t.clickOnBodyHandler && t.mouseDownBodyHandler && t.keydownOnBodyHandler && (e.removeEventListener("click", t.clickOnBodyHandler), e.removeEventListener("mousedown", t.mouseDownBodyHandler), e.removeEventListener("mouseup", t.mouseUpBodyHandler), e.removeEventListener("keydown", t.keydownOnBodyHandler))
-        }, e.prototype._addEventListenerToLinks = function (e) {
-            for (var t = 0;
-                t < e.length;
-                t++) {
-                var n = e[t];
-                "ms-appx" !== n.href.substring(0, "ms-appx".length) ? n.addEventListener("click", this._launchLink) : n.removeAttribute("href")
-            }
-        }, e.prototype._removeEventListenersFromLinks = function (e) {
-            for (var t = 0;
-                t < e.length;
-                t++) {
-                var n = e[t];
-                "ms-appx" !== n.href.substring(0, "ms-appx".length) && n.removeEventListener("click", this._launchLink)
-            }
-        }, e.prototype._addLoadEventListenersToImgs = function (e, t) {
-            for (var n = 0, i = t.length;
-                n < i;
-                n++) {
-                var o = t.item(n);
-                o.addEventListener("load", e._imgLoadHandler, !1), o.addEventListener("error", e._imgLoadHandler, !1)
-            }
-        }, e.prototype._launchLink = function (e) {
-            if (e && e.target) {
-                for (var t = e.target;
-                    "A" !== t.nodeName;
-                )t = t.parentNode;
-                if (t.href) try {
-                    AppMagic.Functions.launchAsync(null, t.href)
-                } catch (e) {
-                    Core.Log.verbose("Error launching link from HTML Viewer:", e)
-                } e.stopPropagation(), e.preventDefault()
             }
         }, e
     })()
@@ -182,11 +128,10 @@
     "use strict";
     n.r(t);
     var i = n(0);
-    n.d(t, "HtmlViewer", (function () { return i.HtmlViewer })), n.d(t, "IHtmlViewerControlContext", (function () { return i.IHtmlViewerControlContext }))
+    n.d(t, "Code128", (function () { return i.Code128 })), n.d(t, "ICode128ControlContext", (function () { return i.ICode128ControlContext }))
 }), (function (e, t, n) {
     "use strict";
     n.r(t);
     var i = n(0);
     Core.exportToNamespace(["AppMagic", "Controls"], i)
 })]);
-//# sourceMappingURL=D:/a/_work/1/s/obj/Assets/js/HtmlViewer/HtmlViewer.js.map
