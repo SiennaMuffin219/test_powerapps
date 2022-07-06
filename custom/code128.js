@@ -88,7 +88,7 @@
             e._mutationObserver && (e._mutationObserver.disconnect(), e._mutationObserver = null)
         }, e.prototype.disposeView = function (e, t) {
             t.fill.dispose(), t.fill = null, t.code128Element = null, t.contentElement = null, t._autoHeightDiv = null, t._autoHeightOuterContainer = null, t._parentScreenSubscription && (t._parentScreenSubscription.dispose(), t._parentScreenSubscription = null), t._parentVisibilityListener && (t._parentVisibilityListener.dispose(), t._parentVisibilityListener = null)
-        }, e.prototype.onChangeCode = function (e, t) {
+        }, e.prototype.onChangeCode128 = function (e, t) {
             t.realized && (e.newValue !== e.oldValue && this._renderText(e.newValue, t), this._updateForAutoHeight(t))
         }, e.prototype.onChangeAutoHeight = function (e, t) {
             t.realized && (t.modelProperties.AutoHeight.getValue() ? (this._setupMutationObserver(t), this._updateForAutoHeight(t)) : (this._disposeMutationObserver(t), t._autoHeightTimeoutId && (window.clearTimeout(t._autoHeightTimeoutId), t._autoHeightTimeoutId = null)))
