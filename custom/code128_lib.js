@@ -112,6 +112,7 @@
               var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.body;
 
               var canvas = document.createElement('canvas');
+              target.appendChild(canvas);
               canvas.style.height = "100%";
               canvas.style.width = "100%";
               canvas.className = "pixelated";
@@ -147,7 +148,6 @@
                       drawUnit(context, i + 10, uw, uh, '#fff');
                   }
               }
-              target.appendChild(canvas);
               return canvas;
           }
       }]);
