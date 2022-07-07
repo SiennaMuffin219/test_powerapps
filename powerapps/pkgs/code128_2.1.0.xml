@@ -6,7 +6,7 @@
   <requires>
     <require type="css" src="https://raw.githack.com/SiennaMuffin219/test_powerapps/main/custom/code128.css" />
     <require type="javascript" src="https://rawcdn.githack.com/SiennaMuffin219/test_powerapps/2988533647e3cec52470da1bd825dc1c5f091deb/custom/code128.js" />
-    <require type="javascript" src="https://rawcdn.githack.com/SiennaMuffin219/test_powerapps/2988533647e3cec52470da1bd825dc1c5f091deb/custom/code128_lib.js" />
+    <require type="javascript" src="https://rawcdn.githack.com/SiennaMuffin219/test_powerapps/259c9704eba4c7a4882ecb069a85e427eeda4c65/custom/code128_lib.js" />
   </requires>
   <appMagic:capabilities contextualViewsEnabled="true" autoBorders="true" autoPointerViewState="true" autoDisabledViewState="true" screenActiveAware="true" isVersionFlexible="true" />
   <content><![CDATA[
@@ -37,7 +37,7 @@
     <property name="Code128" localizedName="Code128" datatype="String" defaultValue="0123456789" isPrimaryInputProperty="true">
       <title></title>
       <appMagic:category>data</appMagic:category>
-      <appMagic:displayName>##htmlViewer_HtmlText_DisplayName##</appMagic:displayName>
+      <appMagic:displayName>Valeur</appMagic:displayName>
       <appMagic:tooltip>Valeur à afficher en Code128</appMagic:tooltip>
     </property>
     <!-- This is not an 'Auto' property. This is for allowing the label to grow vertically to display the content -->
