@@ -118,15 +118,7 @@
                 var i = t.contentElement;
                 i.querySelectorAll("canvas").forEach(el => el.remove());
                 var code = new Code128(e);
-                var canvas = code.insert(i);
-                canvas.style.height = "100%";
-                canvas.style.width = "100%";
-                canvas.className = "pixelated";
-                var ctx = canvas.getContext('2d');
-                var savedImage = new Image();
-                savedImage.src = canvas.toDataURL("image/png");
-                ctx.imageSmoothingEnabled = false;
-                ctx.drawImage(savedImage, 0, 0, canvas.width * 3, canvas.height);
+                code.insert(i);
             }
         }, e
     })()
