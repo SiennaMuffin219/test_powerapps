@@ -25,6 +25,8 @@
 }
 
 .appmagic-code128-container .appmagic-code128 .appmagic-code128-content {
+    height: 100%;
+    width: 100%;
     padding: 1px;
     margin: -1px
 }
