@@ -41,20 +41,6 @@
     "OverridableProperties": {},
     "Version": "2.1.0"
   },
-  "datepicker": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/datepicker",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": true,
-    "LastModifiedTimestamp": "0",
-    "Name": "datepicker",
-    "OverridableProperties": {},
-    "Version": "2.6.0"
-  },
   "dropdown": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -208,20 +194,6 @@
     "Name": "slider",
     "OverridableProperties": {},
     "Version": "2.1.0"
-  },
-  "text": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/text",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": true,
-    "LastModifiedTimestamp": "0",
-    "Name": "text",
-    "OverridableProperties": {},
-    "Version": "2.3.1"
   },
   "timer": {
     "CustomGroupControlTemplateName": "",
