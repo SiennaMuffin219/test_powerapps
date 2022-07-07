@@ -90,8 +90,6 @@
             t.fill.dispose(), t.fill = null, t.code128Element = null, t.contentElement = null, t._autoHeightDiv = null, t._autoHeightOuterContainer = null, t._parentScreenSubscription && (t._parentScreenSubscription.dispose(), t._parentScreenSubscription = null), t._parentVisibilityListener && (t._parentVisibilityListener.dispose(), t._parentVisibilityListener = null)
         }, e.prototype.onChangeCode128 = function (e, t) {
             t.realized && (e.newValue !== e.oldValue && this._renderText(e.newValue, t), this._updateForAutoHeight(t))
-        }, e.prototype.onChangeAutoHeight = function (e, t) {
-            t.realized && (t.modelProperties.AutoHeight.getValue() ? (this._setupMutationObserver(t), this._updateForAutoHeight(t)) : (this._disposeMutationObserver(t), t._autoHeightTimeoutId && (window.clearTimeout(t._autoHeightTimeoutId), t._autoHeightTimeoutId = null)))
         }, e.prototype.onChangeWidth = function (e, t) {
             t.realized && !e.self && t.modelProperties.AutoHeight.getValue() && this._updateForAutoHeight(t, !0)
         }, e.prototype.onChangeHeight = function (e, t) {
@@ -100,8 +98,6 @@
             e.realized && this._updateForAutoHeight(e)
         }, e.prototype.onChangeVisible = function (e, t) {
             t.realized && this._updateForAutoHeight(t, !0)
-        }, e.prototype.onChangeSize = function (e, t) {
-            t.realized && (this._renderOnPropertyUpdate(e, t), this._updateForAutoHeight(t))
         }, e.prototype.onChangePaddingTop = function (e, t) {
             t.realized && this._updateForAutoHeight(t)
         }, e.prototype.onChangePaddingBottom = function (e, t) {
