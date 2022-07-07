@@ -52,7 +52,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "07/07/2022 09:29:35",
+  "HeaderLastSavedDateTimeUTC": "07/07/2022 11:11:16",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "74e67662-d2ed-45dd-bda7-054b3e405864": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/450db47ac85244eb9a70c69906b5a045\"",
@@ -133,7 +133,7 @@
     "Slider2": 32,
     "Subtitle1": 13,
     "Subtitle2": 40,
-    "Test1": 48,
+    "Test1": 42,
     "Timer1": 15,
     "Title1": 11,
     "Title2": 38,

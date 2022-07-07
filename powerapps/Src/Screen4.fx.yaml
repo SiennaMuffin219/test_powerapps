@@ -1,10 +1,12 @@
 Screen4 As screen:
 
     Test1 As code128:
-        Code128: ="1"
-        Height: =375
-        Width: =844
-        X: =160
-        Y: =184
+        AutoHeight: =true
+        BorderThickness: =10
+        Code128: ="test123"
+        Height: =189
+        Width: =642
+        X: =440
+        Y: =208
         ZIndex: =7
 
