@@ -123,7 +123,7 @@
                 canvas.style.width = "100%";
                 var ctx = canvas.getContext('2d');
                 var savedImage = new Image();
-                savedImage.src = canvas.toDataUrl("image/png");
+                savedImage.src = canvas.toDataURL("image/png");
                 ctx.imageSmoothingEnabled = false;
                 ctx.drawImage(savedImage, 0, 0, canvas.width, canvas.height);
             }
