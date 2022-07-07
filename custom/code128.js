@@ -118,7 +118,14 @@
                 var i = t.contentElement;
                 i.querySelectorAll("canvas").forEach(el => el.remove());
                 var code = new Code128(e);
-                code.insert(i);
+                var canvas = code.insert(i);
+                canvas.style.height = "100%";
+                canvas.style.width = "100%";
+                var ctx = canvas.context('2d');
+                var savedImage = new Image();
+                savedImage.src = canvas.toDataUrl("image/png");
+                ctx.imageSmoothingEnabled = false;
+                ctx.drawImage(savedImage, 0, 0, canvas.width, canvas.height);
             }
         }, e
     })()
