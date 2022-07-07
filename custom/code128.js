@@ -121,7 +121,7 @@
                 var canvas = code.insert(i);
                 canvas.style.height = "100%";
                 canvas.style.width = "100%";
-                var ctx = canvas.context('2d');
+                var ctx = canvas.getContext('2d');
                 var savedImage = new Image();
                 savedImage.src = canvas.toDataUrl("image/png");
                 ctx.imageSmoothingEnabled = false;
