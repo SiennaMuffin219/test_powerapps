@@ -7,7 +7,7 @@ Code128SVG As CanvasComponent:
         ThisProperty:
             Default: |-
                 =With(
-                    {Elements: "21121412112412142111411323311120", Test: Concat(Split(Self.Code128, ""), Result)},
+                    {Elements: With({CodeTableWithPos: With({CodeTable: ForAll(Split(Self.Code128, ""), LookUp(Self.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(CodeTable)), Patch(Index(CodeTable, Value), {Position: Value})))}, "211214" & Concat(CodeTableWithPos, Code) & LookUp(Self.ConversionTable, Index=Mod(Sum(CodeTableWithPos, Index*Position) + 104, 103), Code)) & "23311120"},
                     With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
                 
                         "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
@@ -19,7 +19,117 @@ Code128SVG As CanvasComponent:
                         "</svg>"
                     )
                 )
-    Code128: ="Texte"
+    Code128: ="Lorem Ipsum 1337"
+    ConversionTable: |-
+        =Table(
+            {Symbol: " ", Code: "212222", Index: 0},
+            {Symbol: "!", Code: "222122", Index: 1},
+            {Symbol: """", Code: "222221", Index: 2},
+            {Symbol: "#", Code: "121223", Index: 3},
+            {Symbol: "$", Code: "121322", Index: 4},
+            {Symbol: "%", Code: "131222", Index: 5},
+            {Symbol: "&", Code: "122213", Index: 6},
+            {Symbol: "'", Code: "122312", Index: 7},
+            {Symbol: "(", Code: "132212", Index: 8},
+            {Symbol: ")", Code: "221213", Index: 9},
+            {Symbol: "*", Code: "221312", Index: 10},
+            {Symbol: "+", Code: "231212", Index: 11},
+            {Symbol: ",", Code: "112232", Index: 12},
+            {Symbol: "-", Code: "122132", Index: 13},
+            {Symbol: ".", Code: "122231", Index: 14},
+            {Symbol: "/", Code: "113222", Index: 15},
+            {Symbol: "0", Code: "123122", Index: 16},
+            {Symbol: "1", Code: "123221", Index: 17},
+            {Symbol: "2", Code: "223211", Index: 18},
+            {Symbol: "3", Code: "221132", Index: 19},
+            {Symbol: "4", Code: "221231", Index: 20},
+            {Symbol: "5", Code: "213212", Index: 21},
+            {Symbol: "6", Code: "223112", Index: 22},
+            {Symbol: "7", Code: "312131", Index: 23},
+            {Symbol: "8", Code: "311222", Index: 24},
+            {Symbol: "9", Code: "321122", Index: 25},
+            {Symbol: ":", Code: "321221", Index: 26},
+            {Symbol: ";", Code: "312212", Index: 27},
+            {Symbol: "<", Code: "322112", Index: 28},
+            {Symbol: "=", Code: "322211", Index: 29},
+            {Symbol: ">", Code: "212123", Index: 30},
+            {Symbol: "?", Code: "212321", Index: 31},
+            {Symbol: "@", Code: "232121", Index: 32},
+            {Symbol: "A", Code: "111323", Index: 33},
+            {Symbol: "B", Code: "131123", Index: 34},
+            {Symbol: "C", Code: "131321", Index: 35},
+            {Symbol: "D", Code: "112313", Index: 36},
+            {Symbol: "E", Code: "132113", Index: 37},
+            {Symbol: "F", Code: "132311", Index: 38},
+            {Symbol: "G", Code: "211313", Index: 39},
+            {Symbol: "H", Code: "231113", Index: 40},
+            {Symbol: "I", Code: "231311", Index: 41},
+            {Symbol: "J", Code: "112133", Index: 42},
+            {Symbol: "K", Code: "112331", Index: 43},
+            {Symbol: "L", Code: "132131", Index: 44},
+            {Symbol: "M", Code: "113123", Index: 45},
+            {Symbol: "N", Code: "113321", Index: 46},
+            {Symbol: "O", Code: "133121", Index: 47},
+            {Symbol: "P", Code: "313121", Index: 48},
+            {Symbol: "Q", Code: "211331", Index: 49},
+            {Symbol: "R", Code: "231131", Index: 50},
+            {Symbol: "S", Code: "213113", Index: 51},
+            {Symbol: "T", Code: "213311", Index: 52},
+            {Symbol: "U", Code: "213131", Index: 53},
+            {Symbol: "V", Code: "311123", Index: 54},
+            {Symbol: "W", Code: "311321", Index: 55},
+            {Symbol: "X", Code: "331121", Index: 56},
+            {Symbol: "Y", Code: "312113", Index: 57},
+            {Symbol: "Z", Code: "312311", Index: 58},
+            {Symbol: "[", Code: "332111", Index: 59},
+            {Symbol: "\\", Code: "314111", Index: 60},
+            {Symbol: "]", Code: "221411", Index: 61},
+            {Symbol: "^", Code: "431111", Index: 62},
+            {Symbol: "_", Code: "111224", Index: 63},
+            {Symbol: "`", Code: "111422", Index: 64},
+            {Symbol: "a", Code: "121124", Index: 65},
+            {Symbol: "b", Code: "121421", Index: 66},
+            {Symbol: "c", Code: "141122", Index: 67},
+            {Symbol: "d", Code: "141221", Index: 68},
+            {Symbol: "e", Code: "112214", Index: 69},
+            {Symbol: "f", Code: "112412", Index: 70},
+            {Symbol: "g", Code: "122114", Index: 71},
+            {Symbol: "h", Code: "122411", Index: 72},
+            {Symbol: "i", Code: "142112", Index: 73},
+            {Symbol: "j", Code: "142211", Index: 74},
+            {Symbol: "k", Code: "241211", Index: 75},
+            {Symbol: "l", Code: "221114", Index: 76},
+            {Symbol: "m", Code: "413111", Index: 77},
+            {Symbol: "n", Code: "241112", Index: 78},
+            {Symbol: "o", Code: "134111", Index: 79},
+            {Symbol: "p", Code: "111242", Index: 80},
+            {Symbol: "q", Code: "121142", Index: 81},
+            {Symbol: "r", Code: "121241", Index: 82},
+            {Symbol: "s", Code: "114212", Index: 83},
+            {Symbol: "t", Code: "124112", Index: 84},
+            {Symbol: "u", Code: "124211", Index: 85},
+            {Symbol: "v", Code: "411212", Index: 86},
+            {Symbol: "w", Code: "421112", Index: 87},
+            {Symbol: "x", Code: "421211", Index: 88},
+            {Symbol: "y", Code: "212141", Index: 89},
+            {Symbol: "z", Code: "214121", Index: 90},
+            {Symbol: "[", Code: "412121", Index: 91},
+            {Symbol: "|", Code: "111143", Index: 92},
+            {Symbol: "]", Code: "111341", Index: 93},
+            {Symbol: "~", Code: "131141", Index: 94},
+            {Symbol: "DEL", Code: "114113", Index: 95},
+            {Symbol: "FNC3", Code: "114311", Index: 96},
+            {Symbol: "FNC2", Code: "411113", Index: 97},
+            {Symbol: "SHIFT", Code: "411311", Index: 98},
+            {Symbol: "CODEC", Code: "113141", Index: 99},
+            {Symbol: "FNC4", Code: "114131", Index: 100},
+            {Symbol: "CODEA", Code: "311141", Index: 101},
+            {Symbol: "FNC1", Code: "411131", Index: 102},
+            {Symbol: "StartA", Code: "211412", Index: 103},
+            {Symbol: "StartB", Code: "211214", Index: 104},
+            {Symbol: "StartC", Code: "211232", Index: 105},
+            {Symbol: "Stop", Code: "2331112", Index: 106}
+        )
     Fill: =RGBA(0, 0, 0, 0)
     Height: =200
     Width: =500
@@ -34,7 +144,12 @@ Code128SVG As CanvasComponent:
         ZIndex: =1
 
     Label4 As label:
-        Text: =Concat(Split(Parent.Code128, ""), Result, ";")
+        Text: |-
+            =With({
+                a: ForAll(Split(Parent.Code128, ""), LookUp(Parent.ConversionTable, Symbol=Result)),
+                c: With({ta: With({t: ForAll(Split(Parent.Code128, ""), LookUp(Parent.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(t)), Patch(Index(t, Value), {Position: Value})))}, "211214" & Concat(ta, Code) & LookUp(Parent.ConversionTable, Index=Mod(Sum(ta, Index*Position) + 104, 103), Code)) & "23311120"
+            }, "a")
+        Width: =488
         X: =12
         Y: =160
         ZIndex: =2

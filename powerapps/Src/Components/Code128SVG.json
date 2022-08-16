@@ -367,7 +367,7 @@
           },
           {
             "Category": "Data",
-            "InvariantScript": "Concat(Split(Parent.Code128, \"\"), Result, \";\")",
+            "InvariantScript": "With({\r\n    a: ForAll(Split(Parent.Code128, \"\"), LookUp(Parent.ConversionTable, Symbol=Result)),\r\n    c: With({ta: With({t: ForAll(Split(Parent.Code128, \"\"), LookUp(Parent.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(t)), Patch(Index(t, Value), {Position: Value})))}, \"211214\" & Concat(ta, Code) & LookUp(Parent.ConversionTable, Index=Mod(Sum(ta, Index*Position) + 104, 103), Code)) & \"23311120\"\r\n}, \"a\")",
             "Property": "Text",
             "RuleProviderType": "Unknown"
           },
@@ -505,7 +505,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "150",
+            "InvariantScript": "488",
             "Property": "Width",
             "RuleProviderType": "Unknown"
           },
@@ -656,9 +656,17 @@
         "IsLockable": false,
         "NameMapSourceSchema": "?"
       },
-      "Code128"
+      {
+        "AFDDataSourceName": "",
+        "AutoRuleBindingEnabled": false,
+        "AutoRuleBindingString": "\"Texte\"",
+        "InvariantPropertyName": "Code128",
+        "IsLockable": false,
+        "NameMapSourceSchema": "?"
+      },
+      "ConversionTable"
     ],
-    "LastModifiedTimestamp": "637962388431008899",
+    "LastModifiedTimestamp": "637962503947424187",
     "Name": "Code128SVG",
     "Rules": [
       {
@@ -675,14 +683,20 @@
       },
       {
         "Category": "Data",
-        "InvariantScript": "\"Texte\"",
+        "InvariantScript": "\"Lorem Ipsum 1337\"",
         "Property": "Code128",
         "RuleProviderType": "System"
       },
       {
         "Category": "Data",
-        "InvariantScript": "With(\r\n    {Elements: \"21121412112412142111411323311120\", Test: Concat(Split(Self.Code128, \"\"), Result)},\r\n    With({ModuleWidth: Largeur / (Sum(Split(Elements, \"\"),Result) + 20)},\r\n\r\n        \"data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='\" & Largeur & \"' height='\" & Hauteur & \"' viewBow='0 0 \" & Largeur & \" \" & Hauteur & \"'><desc>\" & Self.Code128 & \"</desc>\" &\r\n        \"<path d='M\" & Substitute(Text(10 * ModuleWidth), \",\", \".\") & \" 0\" & Concat(\r\n            MatchAll(Elements, \"(.)(.)\"),\r\n            \"v\" & Hauteur * .75 & \"h\" & Substitute(Text(First(SubMatches).Value * ModuleWidth), \",\", \".\") & \"V0m\" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), \",\", \".\") & \" 0\"\r\n        ) & \"'/>\" &\r\n        \"<text x='50%' y='87.5%' dominant-baseline='middle' text-anchor='middle' style='font: \" & Substitute(Text(Hauteur / 8), \",\", \".\") & \"px Segoe UI'>\" & Self.Code128 & \"</text>\" &\r\n        \"</svg>\"\r\n    )\r\n)",
+        "InvariantScript": "With(\r\n    {Elements: With({CodeTableWithPos: With({CodeTable: ForAll(Split(Self.Code128, \"\"), LookUp(Self.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(CodeTable)), Patch(Index(CodeTable, Value), {Position: Value})))}, \"211214\" & Concat(CodeTableWithPos, Code) & LookUp(Self.ConversionTable, Index=Mod(Sum(CodeTableWithPos, Index*Position) + 104, 103), Code)) & \"23311120\"},\r\n    With({ModuleWidth: Largeur / (Sum(Split(Elements, \"\"),Result) + 20)},\r\n\r\n        \"data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='\" & Largeur & \"' height='\" & Hauteur & \"' viewBow='0 0 \" & Largeur & \" \" & Hauteur & \"'><desc>\" & Self.Code128 & \"</desc>\" &\r\n        \"<path d='M\" & Substitute(Text(10 * ModuleWidth), \",\", \".\") & \" 0\" & Concat(\r\n            MatchAll(Elements, \"(.)(.)\"),\r\n            \"v\" & Hauteur * .75 & \"h\" & Substitute(Text(First(SubMatches).Value * ModuleWidth), \",\", \".\") & \"V0m\" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), \",\", \".\") & \" 0\"\r\n        ) & \"'/>\" &\r\n        \"<text x='50%' y='87.5%' dominant-baseline='middle' text-anchor='middle' style='font: \" & Substitute(Text(Hauteur / 8), \",\", \".\") & \"px Segoe UI'>\" & Self.Code128 & \"</text>\" &\r\n        \"</svg>\"\r\n    )\r\n)",
         "Property": "CodeSVG",
+        "RuleProviderType": "System"
+      },
+      {
+        "Category": "Data",
+        "InvariantScript": "Table(\r\n    {Symbol: \" \", Code: \"212222\", Index: 0},\r\n    {Symbol: \"!\", Code: \"222122\", Index: 1},\r\n    {Symbol: \"\"\"\", Code: \"222221\", Index: 2},\r\n    {Symbol: \"#\", Code: \"121223\", Index: 3},\r\n    {Symbol: \"$\", Code: \"121322\", Index: 4},\r\n    {Symbol: \"%\", Code: \"131222\", Index: 5},\r\n    {Symbol: \"&\", Code: \"122213\", Index: 6},\r\n    {Symbol: \"'\", Code: \"122312\", Index: 7},\r\n    {Symbol: \"(\", Code: \"132212\", Index: 8},\r\n    {Symbol: \")\", Code: \"221213\", Index: 9},\r\n    {Symbol: \"*\", Code: \"221312\", Index: 10},\r\n    {Symbol: \"+\", Code: \"231212\", Index: 11},\r\n    {Symbol: \",\", Code: \"112232\", Index: 12},\r\n    {Symbol: \"-\", Code: \"122132\", Index: 13},\r\n    {Symbol: \".\", Code: \"122231\", Index: 14},\r\n    {Symbol: \"/\", Code: \"113222\", Index: 15},\r\n    {Symbol: \"0\", Code: \"123122\", Index: 16},\r\n    {Symbol: \"1\", Code: \"123221\", Index: 17},\r\n    {Symbol: \"2\", Code: \"223211\", Index: 18},\r\n    {Symbol: \"3\", Code: \"221132\", Index: 19},\r\n    {Symbol: \"4\", Code: \"221231\", Index: 20},\r\n    {Symbol: \"5\", Code: \"213212\", Index: 21},\r\n    {Symbol: \"6\", Code: \"223112\", Index: 22},\r\n    {Symbol: \"7\", Code: \"312131\", Index: 23},\r\n    {Symbol: \"8\", Code: \"311222\", Index: 24},\r\n    {Symbol: \"9\", Code: \"321122\", Index: 25},\r\n    {Symbol: \":\", Code: \"321221\", Index: 26},\r\n    {Symbol: \";\", Code: \"312212\", Index: 27},\r\n    {Symbol: \"<\", Code: \"322112\", Index: 28},\r\n    {Symbol: \"=\", Code: \"322211\", Index: 29},\r\n    {Symbol: \">\", Code: \"212123\", Index: 30},\r\n    {Symbol: \"?\", Code: \"212321\", Index: 31},\r\n    {Symbol: \"@\", Code: \"232121\", Index: 32},\r\n    {Symbol: \"A\", Code: \"111323\", Index: 33},\r\n    {Symbol: \"B\", Code: \"131123\", Index: 34},\r\n    {Symbol: \"C\", Code: \"131321\", Index: 35},\r\n    {Symbol: \"D\", Code: \"112313\", Index: 36},\r\n    {Symbol: \"E\", Code: \"132113\", Index: 37},\r\n    {Symbol: \"F\", Code: \"132311\", Index: 38},\r\n    {Symbol: \"G\", Code: \"211313\", Index: 39},\r\n    {Symbol: \"H\", Code: \"231113\", Index: 40},\r\n    {Symbol: \"I\", Code: \"231311\", Index: 41},\r\n    {Symbol: \"J\", Code: \"112133\", Index: 42},\r\n    {Symbol: \"K\", Code: \"112331\", Index: 43},\r\n    {Symbol: \"L\", Code: \"132131\", Index: 44},\r\n    {Symbol: \"M\", Code: \"113123\", Index: 45},\r\n    {Symbol: \"N\", Code: \"113321\", Index: 46},\r\n    {Symbol: \"O\", Code: \"133121\", Index: 47},\r\n    {Symbol: \"P\", Code: \"313121\", Index: 48},\r\n    {Symbol: \"Q\", Code: \"211331\", Index: 49},\r\n    {Symbol: \"R\", Code: \"231131\", Index: 50},\r\n    {Symbol: \"S\", Code: \"213113\", Index: 51},\r\n    {Symbol: \"T\", Code: \"213311\", Index: 52},\r\n    {Symbol: \"U\", Code: \"213131\", Index: 53},\r\n    {Symbol: \"V\", Code: \"311123\", Index: 54},\r\n    {Symbol: \"W\", Code: \"311321\", Index: 55},\r\n    {Symbol: \"X\", Code: \"331121\", Index: 56},\r\n    {Symbol: \"Y\", Code: \"312113\", Index: 57},\r\n    {Symbol: \"Z\", Code: \"312311\", Index: 58},\r\n    {Symbol: \"[\", Code: \"332111\", Index: 59},\r\n    {Symbol: \"\\\\\", Code: \"314111\", Index: 60},\r\n    {Symbol: \"]\", Code: \"221411\", Index: 61},\r\n    {Symbol: \"^\", Code: \"431111\", Index: 62},\r\n    {Symbol: \"_\", Code: \"111224\", Index: 63},\r\n    {Symbol: \"`\", Code: \"111422\", Index: 64},\r\n    {Symbol: \"a\", Code: \"121124\", Index: 65},\r\n    {Symbol: \"b\", Code: \"121421\", Index: 66},\r\n    {Symbol: \"c\", Code: \"141122\", Index: 67},\r\n    {Symbol: \"d\", Code: \"141221\", Index: 68},\r\n    {Symbol: \"e\", Code: \"112214\", Index: 69},\r\n    {Symbol: \"f\", Code: \"112412\", Index: 70},\r\n    {Symbol: \"g\", Code: \"122114\", Index: 71},\r\n    {Symbol: \"h\", Code: \"122411\", Index: 72},\r\n    {Symbol: \"i\", Code: \"142112\", Index: 73},\r\n    {Symbol: \"j\", Code: \"142211\", Index: 74},\r\n    {Symbol: \"k\", Code: \"241211\", Index: 75},\r\n    {Symbol: \"l\", Code: \"221114\", Index: 76},\r\n    {Symbol: \"m\", Code: \"413111\", Index: 77},\r\n    {Symbol: \"n\", Code: \"241112\", Index: 78},\r\n    {Symbol: \"o\", Code: \"134111\", Index: 79},\r\n    {Symbol: \"p\", Code: \"111242\", Index: 80},\r\n    {Symbol: \"q\", Code: \"121142\", Index: 81},\r\n    {Symbol: \"r\", Code: \"121241\", Index: 82},\r\n    {Symbol: \"s\", Code: \"114212\", Index: 83},\r\n    {Symbol: \"t\", Code: \"124112\", Index: 84},\r\n    {Symbol: \"u\", Code: \"124211\", Index: 85},\r\n    {Symbol: \"v\", Code: \"411212\", Index: 86},\r\n    {Symbol: \"w\", Code: \"421112\", Index: 87},\r\n    {Symbol: \"x\", Code: \"421211\", Index: 88},\r\n    {Symbol: \"y\", Code: \"212141\", Index: 89},\r\n    {Symbol: \"z\", Code: \"214121\", Index: 90},\r\n    {Symbol: \"[\", Code: \"412121\", Index: 91},\r\n    {Symbol: \"|\", Code: \"111143\", Index: 92},\r\n    {Symbol: \"]\", Code: \"111341\", Index: 93},\r\n    {Symbol: \"~\", Code: \"131141\", Index: 94},\r\n    {Symbol: \"DEL\", Code: \"114113\", Index: 95},\r\n    {Symbol: \"FNC3\", Code: \"114311\", Index: 96},\r\n    {Symbol: \"FNC2\", Code: \"411113\", Index: 97},\r\n    {Symbol: \"SHIFT\", Code: \"411311\", Index: 98},\r\n    {Symbol: \"CODEC\", Code: \"113141\", Index: 99},\r\n    {Symbol: \"FNC4\", Code: \"114131\", Index: 100},\r\n    {Symbol: \"CODEA\", Code: \"311141\", Index: 101},\r\n    {Symbol: \"FNC1\", Code: \"411131\", Index: 102},\r\n    {Symbol: \"StartA\", Code: \"211412\", Index: 103},\r\n    {Symbol: \"StartB\", Code: \"211214\", Index: 104},\r\n    {Symbol: \"StartC\", Code: \"211232\", Index: 105},\r\n    {Symbol: \"Stop\", Code: \"2331112\", Index: 106}\r\n)",
+        "Property": "ConversionTable",
         "RuleProviderType": "System"
       },
       {
@@ -785,6 +799,15 @@
       "PropertyDataTypeKey": "String",
       "Tooltip": "Texte à encoder sous forme code 128",
       "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "ConversionTable",
+      "Hidden": true,
+      "Name": "ConversionTable",
+      "PropertyDataTypeKey": "Table",
+      "Tooltip": "Propriété personnalisée",
+      "Type": "{\"Version\":\"1.326\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Table\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Code\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Index\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Symbol\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}]}}"
     }
   ],
   "FirstParty": true,
@@ -795,7 +818,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637962388431008899",
+  "LastModifiedTimestamp": "637962503947424187",
   "Name": "f0ea5c8c17e449628b1dbdfda045dc2e",
   "OverridableProperties": {},
   "Version": "637962306574105439"

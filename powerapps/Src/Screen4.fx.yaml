@@ -21,7 +21,7 @@ Screen4 As screen:
     Code128SVG_1 As Code128SVG:
         CodeSVG: |-
             =With(
-                {Elements: "21121412112412142111411323311120", Test: Concat(Split(Self.Code128, ""), Result)},
+                {Elements: With({CodeTableWithPos: With({CodeTable: ForAll(Split(Self.Code128, ""), LookUp(Self.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(CodeTable)), Patch(Index(CodeTable, Value), {Position: Value})))}, "211214" & Concat(CodeTableWithPos, Code) & LookUp(Self.ConversionTable, Index=Mod(Sum(CodeTableWithPos, Index*Position) + 104, 103), Code)) & "23311120"},
                 With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
             
                     "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
