@@ -1,0 +1,35 @@
+Code128SVG As CanvasComponent:
+    CodeSVG(Largeur As Number, Hauteur As Number):
+        Largeur:
+            Default: =800
+        Hauteur:
+            Default: =200
+        ThisProperty:
+            Default: |-
+                =With(
+                    {Elements: "21121412112412142111411323311120", Bars:"110100100001001011000010010000110100100001101100011101011"},
+                    With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
+                
+                        "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
+                        "<path d='M" & Substitute(Text(10 * ModuleWidth), ",", ".") & " 0" & Concat(
+                            MatchAll(Elements, "(.)(.)"),
+                            "v" & Hauteur * .75 & "h" & Substitute(Text(First(SubMatches).Value * ModuleWidth), ",", ".") & "V0m" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), ",", ".") & " 0"
+                        ) & "'/>" &
+                        "<text x='50%' y='80%' dominant-baseline='text-before-edge' text-anchor='middle'>" & Self.Code128 & "</text>" &
+                        "</svg>"
+                    )
+                )
+    Code128: ="Texte"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =200
+    Width: =500
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    SVG As image:
+        Height: =Parent.Height
+        Image: =Parent.CodeSVG(Self.Width, Self.Height)
+        Width: =Parent.Width
+        ZIndex: =1
+

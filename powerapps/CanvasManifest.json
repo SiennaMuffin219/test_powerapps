@@ -1,8 +1,8 @@
 {
   "FormatVersion": "0.24",
   "Header": {
-    "DocVersion": "1.324",
-    "MinVersionToLoad": "1.324",
+    "DocVersion": "1.326",
+    "MinVersionToLoad": "1.326",
     "MSAppStructureVersion": "2.0"
   },
   "Properties": {
@@ -11,6 +11,8 @@
     "AppPreviewFlagsMap": {
       "aibuilderserviceenrollment": true,
       "allowmultiplescreensincanvaspages": false,
+      "appinsightserrortracing": false,
+      "appinstrumentationcorrelationtracing": false,
       "autocreateenvironmentvariables": false,
       "backfromhostaction": false,
       "behaviorpropertyui": true,
@@ -25,7 +27,6 @@
       "delayloadscreens": true,
       "disablecdsfileandlargeimage": false,
       "dynamicschema": true,
-      "enableaimodelsindatapane": true,
       "enableappembeddingux": false,
       "enablecomponentnamemaps": false,
       "enablecomponentscopeoldbehavior": false,
@@ -60,9 +61,9 @@
       "projectionmapping": true,
       "reactformulabar": false,
       "reliableconcurrent": true,
+      "reverttooldpowerautomate": false,
       "rtlinstudiopreview": false,
       "rtlsupport": false,
-      "searchtool": true,
       "usedisplaynamemetadata": true,
       "useenforcesavedatalimits": true,
       "useexperimentalcdsconnector": true,
