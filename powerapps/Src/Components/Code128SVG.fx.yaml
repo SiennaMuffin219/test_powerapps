@@ -7,7 +7,7 @@ Code128SVG As CanvasComponent:
         ThisProperty:
             Default: |-
                 =With(
-                    {Elements: "21121412112412142111411323311120", Bars:"110100100001001011000010010000110100100001101100011101011"},
+                    {Elements: "21121412112412142111411323311120", Test: Concat(Split(Self.Code128, ""), Result)},
                     With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
                 
                         "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
@@ -32,4 +32,10 @@ Code128SVG As CanvasComponent:
         Image: =Parent.CodeSVG(Self.Width, Self.Height)
         Width: =Parent.Width
         ZIndex: =1
+
+    Label4 As label:
+        Text: =Concat(Split(Parent.Code128, ""), Result, ";")
+        X: =12
+        Y: =160
+        ZIndex: =2
 
