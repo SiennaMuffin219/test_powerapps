@@ -1,21 +1,13 @@
 Screen4 As screen:
 
-    Rectangle5 As rectangle:
-        BorderThickness: =2
-        Height: =200
-        Width: =600
-        X: =282
-        Y: =335
-        ZIndex: =1
-
     Test1 As code128:
         AutoHeight: =true
         BorderThickness: =10
-        Code128: ="ab"
-        Height: =189
-        Width: =642
-        X: =488
-        Y: =48
+        Code128: ="Lorem1234"
+        Height: =200
+        Width: =500
+        X: =424
+        Y: =72
         ZIndex: =2
 
     Code128SVG_1 As Code128SVG:
@@ -25,7 +17,8 @@ Screen4 As screen:
                 With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
             
                     "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
-                    "<path d='M" & Substitute(Text(10 * ModuleWidth), ",", ".") & " 0" & Concat(
+                    "<rect fill='white' width='" & Largeur & "' height='" & Hauteur & "' />" &
+                    "<path fill='black' d='M" & Substitute(Text(10 * ModuleWidth), ",", ".") & " 0" & Concat(
                         MatchAll(Elements, "(.)(.)"),
                         "v" & Hauteur * .75 & "h" & Substitute(Text(First(SubMatches).Value * ModuleWidth), ",", ".") & "V0m" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), ",", ".") & " 0"
                     ) & "'/>" &
@@ -34,8 +27,7 @@ Screen4 As screen:
                 )
             )
         Visible: =true
-        Width: =600
-        X: =282
-        Y: =335
+        X: =400
+        Y: =420
         ZIndex: =3
 

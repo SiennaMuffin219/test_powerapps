@@ -11,7 +11,8 @@ Code128SVG As CanvasComponent:
                     With({ModuleWidth: Largeur / (Sum(Split(Elements, ""),Result) + 20)},
                 
                         "data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' width='" & Largeur & "' height='" & Hauteur & "' viewBow='0 0 " & Largeur & " " & Hauteur & "'><desc>" & Self.Code128 & "</desc>" &
-                        "<path d='M" & Substitute(Text(10 * ModuleWidth), ",", ".") & " 0" & Concat(
+                        "<rect fill='white' width='" & Largeur & "' height='" & Hauteur & "' />" &
+                        "<path fill='black' d='M" & Substitute(Text(10 * ModuleWidth), ",", ".") & " 0" & Concat(
                             MatchAll(Elements, "(.)(.)"),
                             "v" & Hauteur * .75 & "h" & Substitute(Text(First(SubMatches).Value * ModuleWidth), ",", ".") & "V0m" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), ",", ".") & " 0"
                         ) & "'/>" &
@@ -19,7 +20,8 @@ Code128SVG As CanvasComponent:
                         "</svg>"
                     )
                 )
-    Code128: ="Lorem Ipsum 1337"
+    Bordure: =2
+    Code128: ="Lorem1234"
     ConversionTable: |-
         =Table(
             {Symbol: " ", Code: "212222", Index: 0},
@@ -138,19 +140,10 @@ Code128SVG As CanvasComponent:
     ZIndex: =1
 
     SVG As image:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =Parent.Bordure * 2
         Height: =Parent.Height
         Image: =Parent.CodeSVG(Self.Width, Self.Height)
         Width: =Parent.Width
-        ZIndex: =1
-
-    Label4 As label:
-        Text: |-
-            =With({
-                a: ForAll(Split(Parent.Code128, ""), LookUp(Parent.ConversionTable, Symbol=Result)),
-                c: With({ta: With({t: ForAll(Split(Parent.Code128, ""), LookUp(Parent.ConversionTable, Symbol=Result))}, ForAll(Sequence(CountRows(t)), Patch(Index(t, Value), {Position: Value})))}, "211214" & Concat(ta, Code) & LookUp(Parent.ConversionTable, Index=Mod(Sum(ta, Index*Position) + 104, 103), Code)) & "23311120"
-            }, "a")
-        Width: =488
-        X: =12
-        Y: =160
         ZIndex: =2
 
