@@ -1,14 +1,22 @@
 Screen4 As screen:
 
+    Rectangle5 As rectangle:
+        BorderThickness: =2
+        Height: =200
+        Width: =600
+        X: =282
+        Y: =335
+        ZIndex: =1
+
     Test1 As code128:
         AutoHeight: =true
         BorderThickness: =10
         Code128: ="ab"
         Height: =189
         Width: =642
-        X: =440
-        Y: =208
-        ZIndex: =7
+        X: =488
+        Y: =48
+        ZIndex: =2
 
     Code128SVG_1 As Code128SVG:
         CodeSVG: |-
@@ -21,14 +29,13 @@ Screen4 As screen:
                         MatchAll(Elements, "(.)(.)"),
                         "v" & Hauteur * .75 & "h" & Substitute(Text(First(SubMatches).Value * ModuleWidth), ",", ".") & "V0m" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), ",", ".") & " 0"
                     ) & "'/>" &
-                    "<text x='50%' y='80%' dominant-baseline='text-before-edge' text-anchor='middle'>" & Self.Code128 & "</text>" &
+                    "<text x='50%' y='87.5%' dominant-baseline='middle' text-anchor='middle' style='font: " & Substitute(Text(Hauteur / 8), ",", ".") & "px Segoe UI'>" & Self.Code128 & "</text>" &
                     "</svg>"
                 )
             )
-        Height: =250
         Visible: =true
-        Width: =614
-        X: =440
-        Y: =397
-        ZIndex: =8
+        Width: =600
+        X: =282
+        Y: =335
+        ZIndex: =3
 

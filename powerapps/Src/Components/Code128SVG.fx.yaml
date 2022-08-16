@@ -15,7 +15,7 @@ Code128SVG As CanvasComponent:
                             MatchAll(Elements, "(.)(.)"),
                             "v" & Hauteur * .75 & "h" & Substitute(Text(First(SubMatches).Value * ModuleWidth), ",", ".") & "V0m" & Substitute(Text(Last(SubMatches).Value * ModuleWidth), ",", ".") & " 0"
                         ) & "'/>" &
-                        "<text x='50%' y='80%' dominant-baseline='text-before-edge' text-anchor='middle'>" & Self.Code128 & "</text>" &
+                        "<text x='50%' y='87.5%' dominant-baseline='middle' text-anchor='middle' style='font: " & Substitute(Text(Hauteur / 8), ",", ".") & "px Segoe UI'>" & Self.Code128 & "</text>" &
                         "</svg>"
                     )
                 )
