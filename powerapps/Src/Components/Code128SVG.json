@@ -115,7 +115,7 @@
         "Name": "SVG",
         "Parent": "Code128SVG",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 44,
+        "PublishOrderIndex": 37,
         "Rules": [
           {
             "Category": "Data",
@@ -378,7 +378,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "637962524077831669",
+    "LastModifiedTimestamp": "637962559699095026",
     "Name": "Code128SVG",
     "Rules": [
       {
@@ -545,7 +545,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "637962524077831669",
+  "LastModifiedTimestamp": "637962559699095026",
   "Name": "f0ea5c8c17e449628b1dbdfda045dc2e",
   "OverridableProperties": {},
   "Version": "637962306574105439"

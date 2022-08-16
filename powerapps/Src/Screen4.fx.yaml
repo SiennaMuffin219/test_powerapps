@@ -6,7 +6,7 @@ Screen4 As screen:
         Code128: ="Lorem1234"
         Height: =200
         Width: =500
-        X: =424
+        X: =348
         Y: =72
         ZIndex: =2
 
@@ -27,7 +27,7 @@ Screen4 As screen:
                 )
             )
         Visible: =true
-        X: =400
-        Y: =420
+        X: =380
+        Y: =408
         ZIndex: =3
 

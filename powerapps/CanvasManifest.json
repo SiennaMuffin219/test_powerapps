@@ -85,7 +85,7 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "c9d4861b-0bd0-4c9b-9883-287735be756f",
-    "Id": "e24b7677-2f89-45c3-a5df-88971cae108d",
+    "Id": "effa7f47-48b3-40e2-9ccb-7c7f5b4b253a",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "Name": "App_Test",
@@ -105,7 +105,6 @@
   "ScreenOrder": [
     "Screen1",
     "Screen2",
-    "Screen3",
     "Screen4"
   ]
 }

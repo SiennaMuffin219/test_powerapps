@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2022-03-28T17:03:14.9680000Z",
+      "LastChangedTimeString": "2022-08-08T16:22:18.3360000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -25,15 +25,13 @@
       "{VersionNumber}": "Numéro de version",
       "Author": "Créé par",
       "Author#Claims": "Créé par Claims",
+      "Code128": "Code128",
       "ComplianceAssetId": "ID de ressource de conformité",
       "Created": "Créé",
       "Editor": "Modifié par",
       "Editor#Claims": "Modifié par Claims",
       "ID": "ID",
       "Modified": "Modifié",
-      "Personne": "Personne",
-      "Personne#Claims": "Personne Claims",
-      "Personne@odata.type": "Personne (Personne@odata.type)",
       "Title": "Titre"
     },
     "DatasetName": "https://sncf.sharepoint.com/sites/testSP",
